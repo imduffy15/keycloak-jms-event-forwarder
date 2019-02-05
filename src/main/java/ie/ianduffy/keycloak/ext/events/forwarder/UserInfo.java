@@ -1,4 +1,4 @@
-package de.tdlabs.keycloak.ext.events.forwarder;
+package ie.ianduffy.keycloak.ext.events.forwarder;
 
 import java.util.List;
 import java.util.Map;
