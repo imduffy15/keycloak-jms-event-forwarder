@@ -1,4 +1,4 @@
-package de.tdlabs.keycloak.ext.events.forwarder;
+package ie.ianduffy.keycloak.ext.events.forwarder;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.unmodifiableSet;
@@ -21,7 +21,7 @@ public class JmsEventListenerProviderFactory implements EventListenerProviderFac
 	 * This ID must not be changed since the extension is registered with that
 	 * name in Keycloak.
 	 */
-	static final String ID = "idm-keycloak-event-listener-jms";
+	static final String ID = "jms-event-forwarder";
 
 	private static final Set<String> DEFAULT_INCLUDED_CONTEXT_ACTIONS = new HashSet<>(asList( //
 			"REGISTER", //
@@ -54,7 +54,7 @@ public class JmsEventListenerProviderFactory implements EventListenerProviderFac
 	@Override
 	public void init(Config.Scope config) {
 
-		LOG.infov("Creating IdM Keycloak extension component={0}", InstanceNameHolder.toComponentIdString(this));
+		LOG.infov("Creating Keycloak extension component={0}", InstanceNameHolder.toComponentIdString(this));
 		this.includedContextActions = new HashSet<>(DEFAULT_INCLUDED_CONTEXT_ACTIONS);
 	}
 
@@ -66,7 +66,7 @@ public class JmsEventListenerProviderFactory implements EventListenerProviderFac
 	@Override
 	public void close() {
 
-		LOG.infov("Closing IdM Keycloak extension component={0}", InstanceNameHolder.toComponentIdString(this));
+		LOG.infov("Closing Keycloak extension component={0}", InstanceNameHolder.toComponentIdString(this));
 		// NOOP
 	}
 
