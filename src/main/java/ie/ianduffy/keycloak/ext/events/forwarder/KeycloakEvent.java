@@ -1,6 +1,4 @@
-package de.tdlabs.keycloak.ext.events.forwarder;
-
-import static java.util.Collections.emptyMap;
+package ie.ianduffy.keycloak.ext.events.forwarder;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,7 +14,7 @@ import lombok.Data;
  * AdminEvent's}.
  */
 @Data
-public class KeycloakIdmEvent {
+public class KeycloakEvent {
 
 	/**
 	 * {@link UUID} ID of the Event as {@link String}.
@@ -39,7 +37,7 @@ public class KeycloakIdmEvent {
 	private String userId;
 
 	/**
-	 * IdmEvent {@link Type}.
+	 * Event {@link Type}.
 	 */
 	private Type type;
 
@@ -54,14 +52,14 @@ public class KeycloakIdmEvent {
 	private String contextId;
 
 	/**
-	 * Context action which triggered the {@link KeycloakIdmEvent}.
+	 * Context action which triggered the {@link KeycloakEvent}.
 	 */
 	private String contextAction;
 
 	/**
 	 * Additional context data
 	 */
-	private Map<String, Object> contextData = emptyMap();
+	private Map<String, Object> contextData;
 
 	/**
 	 * Holds audit information about who triggered the event creation.
@@ -73,15 +71,15 @@ public class KeycloakIdmEvent {
 	 */
 	private UserInfo userInfo;
 
-	public KeycloakIdmEvent(AdminEvent adminEvent) {
+	public KeycloakEvent(AdminEvent adminEvent) {
 		this(null, adminEvent.getRealmId(), adminEvent.getTime(), Type.ADMIN);
 	}
 
-	public KeycloakIdmEvent(Event userEvent) {
+	public KeycloakEvent(Event userEvent) {
 		this(userEvent.getUserId(), userEvent.getRealmId(), userEvent.getTime(), Type.USER);
 	}
 
-	private KeycloakIdmEvent(String userId, String realmId, long timestamp, Type type) {
+	private KeycloakEvent(String userId, String realmId, long timestamp, Type type) {
 
 		this.eventId = UUID.randomUUID().toString();
 		this.userId = userId;
