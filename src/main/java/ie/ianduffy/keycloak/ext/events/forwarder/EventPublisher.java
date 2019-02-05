@@ -1,4 +1,4 @@
-package de.tdlabs.keycloak.ext.events.forwarder;
+package ie.ianduffy.keycloak.ext.events.forwarder;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
@@ -13,13 +13,13 @@ import javax.naming.NamingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * Publishes {@link KeycloakIdmEvent IdmEvent's} via JMS Queue.
+ * Publishes {@link KeycloakEvent Event's} via JMS Queue.
  */
-public class IdmEventPublisher {
+public class EventPublisher {
 
 	private static final String MESSAGE_TYPE = "messageType";
 
-	private static final String KEYCLOAK_EVENT = "keycloakIdmEvent";
+	private static final String KEYCLOAK_EVENT = "keycloakEvent";
 
 	private static final String JMS_CONNECTION_FACTORY_JNDI_NAME = "java:/jms/ConnectionFactory";
 
@@ -31,7 +31,7 @@ public class IdmEventPublisher {
 
 	private final ObjectMapper objectMapper;
 
-	public IdmEventPublisher(ObjectMapper objectMapper) {
+	public EventPublisher(ObjectMapper objectMapper) {
 
 		this.objectMapper = objectMapper;
 
@@ -48,7 +48,7 @@ public class IdmEventPublisher {
 		return connectionFactory != null && destination != null;
 	}
 
-	void publish(KeycloakIdmEvent idmEvent) throws Exception {
+	void publish(KeycloakEvent idmEvent) throws Exception {
 
 		if (!isJmsConfigured()) {
 			return;

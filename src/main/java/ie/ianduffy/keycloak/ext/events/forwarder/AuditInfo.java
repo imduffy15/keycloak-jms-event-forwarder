@@ -1,10 +1,10 @@
-package de.tdlabs.keycloak.ext.events.forwarder;
+package ie.ianduffy.keycloak.ext.events.forwarder;
 
 import lombok.Builder;
 import lombok.Data;
 
 /**
- * Audit information about the initiator of the {@link KeycloakIdmEvent IdmEvent}.
+ * Audit information about the initiator of the {@link KeycloakEvent Event}.
  */
 @Data
 @Builder
