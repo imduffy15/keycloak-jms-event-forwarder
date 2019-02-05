@@ -4,7 +4,7 @@
 
    <groupId>ie.ianduffy.keycloak</groupId>
    <artifactId>jms-event-forwarder</artifactId>
-   <version>0.0.1</version>
+   <version>0.0.1-5</version>
 
    <properties>
       <jboss-jms-spec.version>1.0.0.Final</jboss-jms-spec.version>
