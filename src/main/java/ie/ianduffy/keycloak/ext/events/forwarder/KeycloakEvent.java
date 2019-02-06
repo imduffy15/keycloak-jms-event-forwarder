@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import lombok.NoArgsConstructor;
 import org.keycloak.events.Event;
 import org.keycloak.events.admin.AdminEvent;
 
@@ -14,6 +15,7 @@ import lombok.Data;
  * AdminEvent's}.
  */
 @Data
+@NoArgsConstructor
 public class KeycloakEvent {
 
 	/**
