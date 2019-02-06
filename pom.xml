@@ -6,7 +6,7 @@
    <artifactId>jms-event-forwarder</artifactId>
    <version>0.0.1</version>
 
-   <url>git:gh-pages://git@github.com:imduffy15/maven.ianduffy.ie.git</url>
+   <url>${deployment.url}</url>
 
    <properties>
       <jboss-jms-spec.version>1.0.0.Final</jboss-jms-spec.version>
@@ -16,6 +16,8 @@
       <maven.compiler.source>1.8</maven.compiler.source>
       <maven.compiler.target>1.8</maven.compiler.target>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+      <deployment.url>git:gh-pages://git@github.com:imduffy15/maven.ianduffy.ie.git</deployment.url>
    </properties>
 
    <dependencies>
@@ -86,8 +88,23 @@
      <repository>
        <id>maven.ianduffy.ie</id>
        <name>maven.ianduffy.ie</name>
-       <url>git:gh-pages://git@github.com:imduffy15/maven.ianduffy.ie.git</url>
+       <url>${deployment.url}</url>
      </repository>
    </distributionManagement>
+
+  <profiles>
+    <profile>
+      <id>ci</id>
+      <activation>
+        <property>
+          <name>env.GITHUB_API_KEY</name>
+        </property>
+      </activation>
+      <properties>
+         <deployment.url>git:gh-pages://${env.GITHUB_API_KEY}@github.com:imduffy15/maven.ianduffy.ie.git</deployment.url>
+      </properties>
+    </profile>
+  </profiles>
+
 
 </project>

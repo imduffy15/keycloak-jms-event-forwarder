@@ -11,6 +11,7 @@ before_install:
 script:
 - mvn versions:set -DnewVersion=$APP_VERSION
 - mvn clean package
+- mvn deploy
 before_deploy:
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
