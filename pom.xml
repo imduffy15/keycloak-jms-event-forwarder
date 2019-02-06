@@ -101,7 +101,7 @@
         </property>
       </activation>
       <properties>
-         <deployment.url>git:gh-pages://${env.GITHUB_API_KEY}@github.com:imduffy15/maven.ianduffy.ie.git</deployment.url>
+         <deployment.url>git:gh-pages://https://${env.GITHUB_API_KEY}@github.com/imduffy15/maven.ianduffy.ie.git</deployment.url>
       </properties>
     </profile>
   </profiles>
