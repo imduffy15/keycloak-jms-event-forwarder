@@ -4,7 +4,7 @@
 
    <groupId>ie.ianduffy.keycloak</groupId>
    <artifactId>jms-event-forwarder</artifactId>
-   <version>0.0.1</version>
+   <version>0.0.1-16</version>
 
    <url>${deployment.url}</url>
 
