@@ -5,9 +5,11 @@ import java.util.Map;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Builder
+@RequiredArgsConstructor
 public class UserInfo {
 
 	private final String userId;
