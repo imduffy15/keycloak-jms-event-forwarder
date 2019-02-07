@@ -81,6 +81,8 @@ public class ForwardingEventListenerProvider implements EventListenerProvider {
 			return;
 		}
 
+		event.setRealmId(keycloakSession.realms().getRealm(event.getRealmId()).getName());
+
 		KeycloakEvent idmEvent = eventMapper.toEvent(event);
 
 		LOG.debugv("Handle {1} Event: EventId={0} Type={1} User={2} ContextAction={3}", idmEvent.getEventId(),
@@ -100,6 +102,9 @@ public class ForwardingEventListenerProvider implements EventListenerProvider {
 
 		LOG.debugv("Handle raw ADMIN Event: Type: <{0}> Resource: <{1}>", event.getOperationType(),
 				event.getResourcePath());
+
+		event.setRealmId(keycloakSession.realms().getRealm(event.getRealmId()).getName());
+
 		KeycloakEvent idmEvent = eventMapper.toEvent(event);
 
 		LOG.debugv("Handle {1} Event: EventId={0} Type={1} User={2} ContextAction={3}", idmEvent.getEventId(),
